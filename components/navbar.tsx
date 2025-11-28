@@ -1,15 +1,16 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { Search, MessageCircle, Bell, X, GraduationCap, Code, Briefcase, Clock, Calendar, ChevronDown, Menu } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Search, MessageCircle, Bell, X, GraduationCap, Code, Briefcase, Clock, Calendar, ChevronDown, Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from "@/components/ui/dropdown-menu";
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -81,11 +82,11 @@ function SearchModal({ isOpen, onClose, searchValue, setSearchValue, selectedCat
   return (
     <>
       <div
-        className="fixed inset-0 z-40 bg-black/30"
+        className=" inset-0 z-40 bg-black/30"
         onClick={onClose}
       />
 
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-4">
+      <div className=" inset-0 z-50 flex items-center justify-center p-2 md:p-4">
         <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
           {/* Header */}
           <div className="border-b border-border flex items-center justify-between px-3 md:px-6 py-3 md:py-4">
@@ -194,9 +195,10 @@ export function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-40 border-b border-border bg-background">
+      <nav className=" top-0 z-40 border-b border-border bg-background">
         <div className="flex items-center justify-between gap-2 md:gap-4 px-3 md:px-6 py-3">
           {/* Logo */}
+          <Link href="/" className="flex items-center">
           <div className="flex items-center">
             <Image
               src="/logo.svg"
@@ -207,6 +209,7 @@ export function Navbar() {
               priority
             />
           </div>
+          </Link>
 
           {/* Search Bar */}
           <div className="hidden md:flex flex-1 items-center gap-3 max-w-md">
@@ -263,36 +266,40 @@ export function Navbar() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center" className="w-screen p-3 md:p-6 rounded-none border-t-0">
                 <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[1fr_1fr_1fr_200px] gap-2 md:gap-4 h-auto md:h-[250px]">
-                  <div className="group relative overflow-hidden rounded-lg cursor-pointer h-full">
-                    <div className="relative h-full">
-                      <Image
-                        src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&q=80"
-                        alt="Education"
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
-                        <h3 className="text-sm font-bold">studsphere for Education</h3>
-                        <p className="text-xs text-white/90">You could be selling by tomorrow</p>
+                  <Link href="/colleges">
+                    <div className="group relative overflow-hidden rounded-lg cursor-pointer h-full">
+                      <div className="relative h-full">
+                        <Image
+                          src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&q=80"
+                          alt="Education"
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
+                          <h3 className="text-sm font-bold">studsphere for Education</h3>
+                          <p className="text-xs text-white/90">You could be selling by tomorrow</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="group relative overflow-hidden rounded-lg cursor-pointer h-full">
-                    <div className="relative h-full">
-                      <Image
-                        src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&q=80"
-                        alt="Jobs"
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
-                        <h3 className="text-sm font-bold">Studsphere for job</h3>
-                        <p className="text-xs text-white/90">You could be selling by tomorrow</p>
+                  </Link>
+                  <Link href="/jobs">
+                    <div className="group relative overflow-hidden rounded-lg cursor-pointer h-full">
+                      <div className="relative h-full">
+                        <Image
+                          src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&q=80"
+                          alt="Jobs"
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
+                          <h3 className="text-sm font-bold">Studsphere for job</h3>
+                          <p className="text-xs text-white/90">You could be selling by tomorrow</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                   <div className="group relative overflow-hidden rounded-lg cursor-pointer h-full">
                     <div className="relative h-full">
                       <Image
@@ -406,36 +413,40 @@ export function Navbar() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-[calc(100vw-24px)]">
                   <div className="grid grid-cols-2 gap-2 p-2">
-                    <div className="group relative overflow-hidden rounded-lg cursor-pointer">
-                      <div className="aspect-video relative">
-                        <Image
-                          src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&q=80"
-                          alt="Education"
-                          fill
-                          className="object-cover"
-                        />
-                        <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 p-2 text-white">
-                          <h3 className="text-xs font-bold">Studsphere for Education</h3>
-                          <p className="text-[10px] text-white/90">Explore colleges & universities</p>
+                    <Link href="/colleges">
+                      <div className="group relative overflow-hidden rounded-lg cursor-pointer">
+                        <div className="aspect-video relative">
+                          <Image
+                            src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&q=80"
+                            alt="Education"
+                            fill
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+                          <div className="absolute bottom-0 left-0 right-0 p-2 text-white">
+                            <h3 className="text-xs font-bold">Studsphere for Education</h3>
+                            <p className="text-[10px] text-white/90">Explore colleges & universities</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="group relative overflow-hidden rounded-lg cursor-pointer">
-                      <div className="aspect-video relative">
-                        <Image
-                          src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&q=80"
-                          alt="Jobs"
-                          fill
-                          className="object-cover"
-                        />
-                        <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 p-2 text-white">
-                          <h3 className="text-xs font-bold">Studsphere for Jobs</h3>
-                          <p className="text-[10px] text-white/90">Find job opportunities</p>
+                    </Link>
+                    <Link href="/jobs">
+                      <div className="group relative overflow-hidden rounded-lg cursor-pointer">
+                        <div className="aspect-video relative">
+                          <Image
+                            src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&q=80"
+                            alt="Jobs"
+                            fill
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+                          <div className="absolute bottom-0 left-0 right-0 p-2 text-white">
+                            <h3 className="text-xs font-bold">Studsphere for Jobs</h3>
+                            <p className="text-[10px] text-white/90">Find job opportunities</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                     <div className="group relative overflow-hidden rounded-lg cursor-pointer">
                       <div className="aspect-video relative">
                         <Image
