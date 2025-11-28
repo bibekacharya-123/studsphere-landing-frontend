@@ -300,6 +300,7 @@ export function Navbar() {
                       </div>
                     </div>
                   </Link>
+                  <Link href="/events">
                   <div className="group relative overflow-hidden rounded-lg cursor-pointer h-full">
                     <div className="relative h-full">
                       <Image
@@ -315,6 +316,7 @@ export function Navbar() {
                       </div>
                     </div>
                   </div>
+                  </Link>
                   <div className="col-span-2 md:col-span-3 lg:col-span-1 flex md:flex-col gap-2 md:gap-3">
                     <div className="group relative overflow-hidden rounded-lg cursor-pointer">
                       <div className="aspect-[4/2.5] relative">
